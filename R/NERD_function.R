@@ -112,7 +112,7 @@ NERD_function <- function(times,res_info,param=365) {
 		for (i in 1:m) {
 			Markov1[i,] <- Markov[i,]/sums[i];
 		}
-		Counts1 <- t(array( rep(Counts), c(3,3)));
+		Counts1 <- t(array( rep(Counts), c(m,m)));
 		chi <- (Markov1 - Counts1)^2;
 		chi <- chi/Counts1;
 		chi <- sum(chi)
