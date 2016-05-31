@@ -27,7 +27,7 @@ NERD_function <- function(times,res_info,param=365) {
 		m_counts[i] <- sum(res_info == i);
 	}
 	min_m <- min(m_counts);
-	if (m < 1) {
+	if (min_m < 1) {
 		stop("Must be a postive number of counts in each resistance category")
 	}
 		
