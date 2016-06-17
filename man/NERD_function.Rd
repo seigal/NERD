@@ -4,14 +4,18 @@
 \alias{NERD_function}
 \title{The Nosocomial Evolution of Resistance Detector (NERD)}
 \usage{
-NERD_function(times, res_info, param = 365)
+NERD_function(times, res_info, mu = 100, size = 10, final = FALSE)
 }
 \arguments{
 \item{times}{The date information. Should be stored in non-negative integers (e.g. days).}
 
-\item{res_info}{The resistance information. Should be stored on a discrete scale from 1 to some value m. Values below 0 are discarded. For us: load "CData" which stores evolution information and select appropriate column to extract antibiotic of interest.}
+\item{res_info}{The resistance information. Should be stored on a discrete scale from 1 to some value m. Values below 0 are discarded.}
 
-\item{param}{The parameter for the Poisson part of the test. Defaults to 365 days = 1 year.}
+\item{mu}{The mean for the negative binomial distribution which models the outbreak distribution of the hospital in question. Estimated according to the size of the hospital. Defaults to 100 days.}
+
+\item{size}{The parameter for the size/over-dispersion of the negative binomial distribution. Defaults to the value 10.}
+
+\item{final}{How many samples to generate for the permutation test. Defaults to FALSE, indicating that 1000 samples should be used. TRUE ups the precision to 10,000 samples (but should be run with patience).}
 }
 \description{
 The NERD package analyses temporal trends in antibiotic resistance data.
